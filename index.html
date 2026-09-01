@@ -1,105 +1,1047 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HotelAIReceptionist</title>
+
+<title>HotelAIReceptionist | AI Receptionist for Hotels</title>
+
+<meta name="description"
+content="AI Receptionist for hotels, guesthouses, B&Bs and vacation rentals. Answer guest questions 24/7 through your website and WhatsApp.">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
-body{background:#f4f6f9;color:#222;}
-.hero{background:#0f172a;color:white;padding:90px 20px;text-align:center;}
-.hero h1{font-size:58px;margin-bottom:20px;}
-.hero p{font-size:22px;max-width:850px;margin:auto;line-height:1.7;}
-.buttons{margin-top:35px;}
-.btn{display:inline-block;padding:15px 30px;margin:10px;border-radius:10px;text-decoration:none;font-weight:bold;transition:.3s;}
-.btn-primary{background:#3b82f6;color:white;}
-.btn-primary:hover{background:#2563eb;}
-.btn-secondary{background:white;color:#0f172a;}
-.section{padding:80px 20px;max-width:1200px;margin:auto;}
-.section h2{text-align:center;font-size:42px;margin-bottom:50px;}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
-.feature,.plan{background:white;padding:30px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.08);}
-.feature h3{margin-bottom:12px;}
-.demo{text-align:center;}
-.demo iframe{width:100%;max-width:450px;height:760px;border:none;border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,.15);}
-.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;align-items:start;}
-.plan{text-align:center;padding:40px;}
-.plan h3{font-size:30px;margin-bottom:20px;}
-.setup{font-size:22px;font-weight:bold;color:#111827;margin-bottom:8px;}
-.monthly{font-size:46px;font-weight:bold;color:#3b82f6;margin-bottom:25px;}
-.plan p{margin-bottom:12px;line-height:1.4;}
-.plan .btn{margin-top:20px;}
-.contact{max-width:700px;margin:auto;}
-.contact input,.contact textarea{width:100%;padding:15px;margin-bottom:15px;border:1px solid #ddd;border-radius:10px;}
-.contact button{background:#3b82f6;color:white;border:none;padding:15px 30px;border-radius:10px;cursor:pointer;font-size:16px;}
-.contact button:hover{background:#2563eb;}
-.footer{background:#0f172a;color:white;text-align:center;padding:30px;margin-top:60px;}
+
+/* =========================
+   GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f6f9;
+    color:#1f2937;
+    line-height:1.6;
+}
+
+.section{
+    padding:85px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section h2{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:18px;
+    color:#111827;
+}
+
+.section-subtitle{
+    text-align:center;
+    max-width:760px;
+    margin:0 auto 50px;
+    font-size:18px;
+    color:#6b7280;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar{
+    background:#0f172a;
+    padding:18px 20px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#e5e7eb;
+    text-decoration:none;
+    font-size:15px;
+}
+
+.nav-links a:hover{
+    color:#60a5fa;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    background:#0f172a;
+    color:white;
+    padding:105px 20px 95px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.1;
+    margin-bottom:22px;
+}
+
+.hero-main{
+    color:#60a5fa;
+}
+
+.hero p{
+    font-size:22px;
+    max-width:880px;
+    margin:auto;
+    line-height:1.7;
+    color:#e5e7eb;
+}
+
+.buttons{
+    margin-top:36px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 30px;
+    margin:8px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.25s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:#3b82f6;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#2563eb;
+    transform:translateY(-1px);
+}
+
+.btn-secondary{
+    background:white;
+    color:#0f172a;
+}
+
+.btn-secondary:hover{
+    background:#f3f4f6;
+}
+
+.hero-badges{
+    margin-top:32px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    color:#dbeafe;
+    font-weight:bold;
+}
+
+
+/* =========================
+   TRUST BAR
+========================= */
+
+.trust-bar{
+    background:white;
+    padding:22px 20px;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.trust-items{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+    font-weight:bold;
+    color:#374151;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+.feature:hover{
+    transform:translateY(-4px);
+}
+
+.feature-icon{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    margin-bottom:12px;
+    font-size:20px;
+    color:#111827;
+}
+
+.feature p{
+    color:#4b5563;
+}
+
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how-section{
+    background:white;
+    max-width:none;
+}
+
+.how-inner{
+    max-width:1200px;
+    margin:auto;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+}
+
+.step{
+    text-align:center;
+    padding:25px 15px;
+}
+
+.step-number{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    background:#3b82f6;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 18px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.step h3{
+    margin-bottom:9px;
+    color:#111827;
+}
+
+.step p{
+    font-size:15px;
+    color:#6b7280;
+}
+
+
+/* =========================
+   DEMO
+========================= */
+
+.demo{
+    text-align:center;
+}
+
+.demo iframe{
+    width:100%;
+    max-width:450px;
+    height:760px;
+    border:none;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+
+/* =========================
+   PERFECT FOR
+========================= */
+
+.property-types{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.property-card{
+    background:white;
+    padding:30px 18px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.property-card span{
+    font-size:38px;
+    display:block;
+    margin-bottom:12px;
+}
+
+.property-card h3{
+    font-size:18px;
+}
+
+
+/* =========================
+   TRIAL SECTION
+========================= */
+
+.trial-box{
+    background:#0f172a;
+    color:white;
+    border-radius:22px;
+    padding:55px 40px;
+    text-align:center;
+}
+
+.trial-box h2{
+    color:white;
+    margin-bottom:20px;
+}
+
+.trial-box p{
+    max-width:800px;
+    margin:0 auto 16px;
+    font-size:18px;
+    color:#e5e7eb;
+}
+
+.trial-highlight{
+    font-size:24px !important;
+    color:#93c5fd !important;
+    font-weight:bold;
+}
+
+
+/* =========================
+   PRICING
+========================= */
+
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+    align-items:start;
+}
+
+.plan{
+    background:white;
+    text-align:center;
+    padding:38px 24px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    position:relative;
+}
+
+.plan h3{
+    font-size:28px;
+    margin-bottom:16px;
+}
+
+.setup{
+    font-size:20px;
+    font-weight:bold;
+    color:#111827;
+    margin-bottom:8px;
+}
+
+.monthly{
+    font-size:42px;
+    font-weight:bold;
+    color:#3b82f6;
+    margin-bottom:22px;
+}
+
+.plan p{
+    margin-bottom:11px;
+    line-height:1.4;
+    font-size:15px;
+}
+
+.plan .btn{
+    margin-top:22px;
+}
+
+.plan-popular{
+    border:2px solid #3b82f6;
+}
+
+.popular-badge{
+    position:absolute;
+    top:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#3b82f6;
+    color:white;
+    padding:6px 18px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.enterprise{
+    background:#111827;
+    color:white;
+}
+
+.enterprise h3,
+.enterprise .setup{
+    color:white;
+}
+
+.enterprise p{
+    color:#e5e7eb;
+}
+
+.custom-price{
+    color:#60a5fa;
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.pricing-notes{
+    text-align:center;
+    max-width:900px;
+    margin:40px auto 0;
+    color:#4b5563;
+}
+
+.pricing-notes strong{
+    color:#111827;
+}
+
+
+/* =========================
+   COMING SOON
+========================= */
+
+.coming{
+    background:#eaf2ff;
+    border-radius:22px;
+    padding:55px 40px;
+    text-align:center;
+}
+
+.coming h2{
+    margin-bottom:18px;
+}
+
+.voice-grid{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.voice-item{
+    background:white;
+    border-radius:14px;
+    padding:24px 15px;
+    font-weight:bold;
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    max-width:900px;
+    margin:auto;
+}
+
+.faq-item{
+    background:white;
+    border-radius:12px;
+    margin-bottom:15px;
+    padding:22px 25px;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.faq-item h3{
+    margin-bottom:10px;
+    color:#111827;
+    font-size:18px;
+}
+
+.faq-item p{
+    color:#4b5563;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    max-width:700px;
+    margin:auto;
+}
+
+.contact input,
+.contact textarea,
+.contact select{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:15px;
+    background:white;
+}
+
+.contact button{
+    background:#3b82f6;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    width:100%;
+}
+
+.contact button:hover{
+    background:#2563eb;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#0f172a;
+    color:white;
+    margin-top:60px;
+    padding:55px 20px 30px;
+}
+
+.footer-container{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer h3{
+    margin-bottom:14px;
+}
+
+.footer p{
+    color:#cbd5e1;
+}
+
+.footer a{
+    display:block;
+    color:#cbd5e1;
+    text-decoration:none;
+    margin-bottom:8px;
+}
+
+.footer a:hover{
+    color:#60a5fa;
+}
+
+.footer-bottom{
+    max-width:1100px;
+    margin:35px auto 0;
+    border-top:1px solid #334155;
+    padding-top:22px;
+    text-align:center;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+
+    .pricing{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .steps{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    .hero{
+        padding:75px 20px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .section{
+        padding:65px 20px;
+    }
+
+    .section h2{
+        font-size:34px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .pricing{
+        grid-template-columns:1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+
+    .hero-badges{
+        gap:15px;
+        flex-direction:column;
+    }
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+NAVIGATION
+========================= -->
+
+<nav class="navbar">
+<div class="nav-container">
+
+<a href="#" class="logo">HotelAIReceptionist</a>
+
+<div class="nav-links">
+<a href="#features">Features</a>
+<a href="#how">How It Works</a>
+<a href="#demo">Live Demo</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</div>
+
+</div>
+</nav>
+
+
+<!-- =========================
+HERO
+========================= -->
+
 <section class="hero">
-<h1>HotelAIReceptionist</h1>
-<p>AI Receptionist for Hotels, Guesthouses and Vacation Rentals. Answer guest questions instantly, 24/7, reduce phone calls and increase direct bookings.</p>
+
+<h1>
+Your AI Receptionist —
+<span class="hero-main">Available 24/7</span>
+</h1>
+
+<p>
+Answer guest questions instantly on your website, WhatsApp and Messenger.
+Reduce reception workload, improve guest satisfaction and help increase
+direct bookings.
+</p>
 
 <div class="buttons">
-<a href="https://petreleon26-bot.github.io/hotelai-transilvania/" target="_blank" class="btn btn-primary">Try Live Demo</a>
-<a href="#contact" class="btn btn-secondary">Contact Us</a>
+
+<a href="#demo"
+class="btn btn-primary">
+Try Live Demo
+</a>
+
+<a href="#contact"
+class="btn btn-secondary">
+Start Free Trial
+</a>
+
 </div>
+
+<div class="hero-badges">
+
+<span>✓ 24/7 Guest Assistance</span>
+<span>✓ Multi-Language Support</span>
+<span>✓ 2-Week Free Trial</span>
+<span>✓ No Upfront Payment</span>
+
+</div>
+
 </section>
 
-<section class="section">
+
+<!-- =========================
+TRUST BAR
+========================= -->
+
+<div class="trust-bar">
+
+<div class="trust-items">
+
+<span>✓ Personalized Setup</span>
+<span>✓ Website Integration</span>
+<span>✓ WhatsApp Ready</span>
+<span>✓ Direct Support</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+FEATURES
+========================= -->
+
+<section id="features" class="section">
+
 <h2>Why Hotels Choose HotelAIReceptionist</h2>
 
+<p class="section-subtitle">
+Give your guests instant answers while allowing your reception team
+to focus on the guests who need personal attention.
+</p>
+
 <div class="features">
-<div class="feature"><h3>24/7 Availability</h3><p>Your AI receptionist never sleeps and answers guests day and night.</p></div>
-<div class="feature"><h3>Instant Answers</h3><p>Guests receive accurate answers in seconds.</p></div>
-<div class="feature"><h3>Website Integration</h3><p>Add the chatbot to any hotel or guesthouse website.</p></div>
-<div class="feature"><h3>WhatsApp Ready</h3><p>Connect your AI receptionist directly to WhatsApp.</p></div>
-<div class="feature"><h3>Facebook Messenger</h3><p>Answer guest questions automatically on Facebook.</p></div>
-<div class="feature"><h3>Multi-Language Support</h3><p>Serve international guests in multiple languages.</p></div>
+
+<div class="feature">
+<div class="feature-icon">🌙</div>
+<h3>Always Available</h3>
+<p>Your AI receptionist assists guests day and night, even when reception is closed.</p>
 </div>
+
+<div class="feature">
+<div class="feature-icon">⚡</div>
+<h3>Instant Guest Answers</h3>
+<p>Guests receive immediate answers without waiting for reception staff.</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">💻</div>
+<h3>Website Integration</h3>
+<p>Add your AI receptionist directly to your hotel, guesthouse or accommodation website.</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">💬</div>
+<h3>WhatsApp AI Receptionist</h3>
+<p>Allow guests to communicate with your AI assistant through WhatsApp.</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">📱</div>
+<h3>Facebook Messenger</h3>
+<p>Automatically answer common guest questions received through Facebook Messenger.</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">🌍</div>
+<h3>Multi-Language Support</h3>
+<p>Assist international guests naturally in multiple languages.</p>
+</div>
+
+</div>
+
 </section>
+
+
+<!-- =========================
+HOW IT WORKS
+========================= -->
+
+<section id="how" class="section how-section">
+
+<div class="how-inner">
+
+<h2>How It Works</h2>
+
+<p class="section-subtitle">
+Getting started is simple. We configure the AI specifically for your property.
+</p>
+
+<div class="steps">
+
+<div class="step">
+<div class="step-number">1</div>
+<h3>Send Your Information</h3>
+<p>Share your website, FAQ and relevant hotel information with us.</p>
+</div>
+
+<div class="step">
+<div class="step-number">2</div>
+<h3>We Configure Your AI</h3>
+<p>We build a knowledge base tailored specifically to your property.</p>
+</div>
+
+<div class="step">
+<div class="step-number">3</div>
+<h3>Review Your Demo</h3>
+<p>You receive a working version of your personalized AI Receptionist.</p>
+</div>
+
+<div class="step">
+<div class="step-number">4</div>
+<h3>Test for 2 Weeks</h3>
+<p>Test the system with real guest questions without any upfront payment.</p>
+</div>
+
+<div class="step">
+<div class="step-number">5</div>
+<h3>Go Live</h3>
+<p>If you're satisfied, we activate your selected plan and continue supporting your AI.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+LIVE DEMO
+========================= -->
 
 <section id="demo" class="section demo">
-<h2>Live Demo</h2>
-<iframe src="https://petreleon26-bot.github.io/hotelai-transilvania/"></iframe>
+
+<h2>Try the AI Receptionist</h2>
+
+<p class="section-subtitle">
+Ask the demo about check-in, breakfast, parking, Wi-Fi or hotel facilities.
+</p>
+
+<iframe
+src="https://petreleon26-bot.github.io/hotelai-transilvania/"
+title="HotelAIReceptionist Live Demo">
+</iframe>
+
 </section>
 
+
+<!-- =========================
+PERFECT FOR
+========================= -->
+
 <section class="section">
-<h2>Pricing</h2>
+
+<h2>Perfect For</h2>
+
+<p class="section-subtitle">
+HotelAIReceptionist can be adapted to different types of accommodation businesses.
+</p>
+
+<div class="property-types">
+
+<div class="property-card">
+<span>🏨</span>
+<h3>Hotels</h3>
+</div>
+
+<div class="property-card">
+<span>🏡</span>
+<h3>Guesthouses</h3>
+</div>
+
+<div class="property-card">
+<span>🛏️</span>
+<h3>B&Bs</h3>
+</div>
+
+<div class="property-card">
+<span>🏖️</span>
+<h3>Vacation Rentals</h3>
+</div>
+
+<div class="property-card">
+<span>🏕️</span>
+<h3>Caravan & Holiday Parks</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+FREE TRIAL
+========================= -->
+
+<section class="section">
+
+<div class="trial-box">
+
+<h2>Test It Before You Pay</h2>
+
+<p class="trial-highlight">
+No upfront payment.
+</p>
+
+<p>
+We configure the AI Receptionist specifically for your property and
+allow you to test it in real conditions for two weeks.
+</p>
+
+<p>
+Only after you approve the pilot do we invoice the setup fee
+and activate your monthly subscription.
+</p>
+
+<a href="#contact"
+class="btn btn-primary">
+Start Your Free Pilot
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+PRICING
+========================= -->
+
+<section id="pricing" class="section">
+
+<h2>Simple & Transparent Pricing</h2>
+
+<p class="section-subtitle">
+Choose the level of AI guest assistance that fits your property.
+Every plan includes a two-week real-world trial before payment.
+</p>
 
 <div class="pricing">
 
+
+<!-- STARTER -->
+
 <div class="plan">
+
 <h3>Starter</h3>
+
 <div class="setup">€199 Setup</div>
+
 <div class="monthly">€49/mo</div>
+
 <p>✓ AI Website Chatbot</p>
 <p>✓ Basic FAQ Setup (up to 30 Q&A)</p>
 <p>✓ Website Integration</p>
 <p>✓ Email Support</p>
-<a href="https://buy.stripe.com/fZu5kE2wnfGRdFI9PNgrS00" target="_blank" class="btn btn-primary">Get Started</a>
+
+<a href="#contact"
+class="btn btn-primary package-btn"
+data-package="Starter">
+Start Free Trial
+</a>
+
 </div>
 
-<div class="plan">
+
+<!-- STANDARD -->
+
+<div class="plan plan-popular">
+
+<div class="popular-badge">
+MOST POPULAR
+</div>
+
 <h3>Standard</h3>
+
 <div class="setup">€299 Setup</div>
+
 <div class="monthly">€99/mo</div>
+
 <p>✓ Everything in Starter</p>
 <p>✓ Hotel-Branded Chatbot</p>
 <p>✓ Extended FAQ Database (up to 100 Q&A)</p>
 <p>✓ Priority Support</p>
 <p>✓ Monthly Content Updates</p>
-<a href="https://buy.stripe.com/7sY00k3AreCNfNQ7HFgrS01" target="_blank" class="btn btn-primary">Get Started</a>
+
+<a href="#contact"
+class="btn btn-primary package-btn"
+data-package="Standard">
+Start Free Trial
+</a>
+
 </div>
 
+
+<!-- PREMIUM -->
+
 <div class="plan">
+
 <h3>Premium</h3>
+
 <div class="setup">€499 Setup</div>
+
 <div class="monthly">€199/mo</div>
+
 <p>✓ Everything in Standard</p>
 <p>✓ Advanced AI Knowledge Base</p>
 <p>✓ Unlimited FAQ Expansion</p>
@@ -110,49 +1052,453 @@ body{background:#f4f6f9;color:#222;}
 <p>✓ Booking & Check-in Assistance</p>
 <p>✓ WhatsApp AI Receptionist</p>
 <p>✓ Monthly AI Training & Optimization</p>
-<a href="https://buy.stripe.com/00w28s5Iz7al9ps2nlgrS02" target="_blank" class="btn btn-primary">Get Started</a>
+
+<a href="#contact"
+class="btn btn-primary package-btn"
+data-package="Premium">
+Start Free Trial
+</a>
+
+</div>
+
+
+<!-- ENTERPRISE -->
+
+<div class="plan enterprise">
+
+<h3>Enterprise</h3>
+
+<div class="setup">
+Custom Quote
+</div>
+
+<div class="custom-price">
+Tailored Solution
+</div>
+
+<p>✓ Hotel Chains</p>
+<p>✓ Resorts & Luxury Properties</p>
+<p>✓ Multi-Property Groups</p>
+<p>✓ PMS & Channel Manager Integrations</p>
+<p>✓ Custom AI Workflows</p>
+<p>✓ AI Voice Receptionist</p>
+<p>✓ Dedicated Account Manager</p>
+<p>✓ Priority Support</p>
+
+<a href="#contact"
+class="btn btn-primary package-btn"
+data-package="Enterprise / Custom Quote">
+Request a Quote
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="pricing-notes">
+
+<p>
+<strong>No upfront payment.</strong>
+Every standard implementation includes a 2-week real-world trial.
+You only pay after you approve the pilot.
+</p>
+
+<br>
+
+<p>
+Prices shown above apply to standard implementations.
+<strong>
+Custom pricing is available for international properties,
+hotel groups and tailored enterprise solutions.
+</strong>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+AI VOICE
+========================= -->
+
+<section class="section">
+
+<div class="coming">
+
+<h2>Coming Soon: AI Voice Receptionist</h2>
+
+<p class="section-subtitle" style="margin-bottom:0;">
+Extend your AI Receptionist beyond chat and let guests receive assistance over the phone.
+</p>
+
+<div class="voice-grid">
+
+<div class="voice-item">
+☎️ Incoming Calls
+</div>
+
+<div class="voice-item">
+🤖 Natural AI Conversations
+</div>
+
+<div class="voice-item">
+🔑 Self Check-in Assistance
+</div>
+
+<div class="voice-item">
+📋 Booking Verification
 </div>
 
 </div>
+
+</div>
+
 </section>
+
+
+<!-- =========================
+FAQ
+========================= -->
+
+<section id="faq" class="section">
+
+<h2>Frequently Asked Questions</h2>
+
+<p class="section-subtitle">
+Everything you need to know before testing HotelAIReceptionist.
+</p>
+
+<div class="faq">
+
+
+<div class="faq-item">
+<h3>Does the AI Receptionist replace my reception staff?</h3>
+<p>
+No. It is designed to reduce repetitive guest enquiries and support your team,
+allowing staff to focus on situations that require personal attention.
+</p>
+</div>
+
+
+<div class="faq-item">
+<h3>Can it answer guests in different languages?</h3>
+<p>
+Yes. The AI can communicate with international guests in multiple languages.
+</p>
+</div>
+
+
+<div class="faq-item">
+<h3>Where does the AI get its information?</h3>
+<p>
+The AI is configured using information supplied by your property,
+including your website, FAQ, policies, services and other approved content.
+</p>
+</div>
+
+
+<div class="faq-item">
+<h3>Can I update the information later?</h3>
+<p>
+Yes. Your knowledge base can be updated when opening hours,
+services, policies or other hotel information changes.
+</p>
+</div>
+
+
+<div class="faq-item">
+<h3>Does it work on mobile devices?</h3>
+<p>
+Yes. The website chatbot is designed to work on desktop,
+tablet and mobile devices.
+</p>
+</div>
+
+
+<div class="faq-item">
+<h3>Can it connect to WhatsApp?</h3>
+<p>
+Yes. WhatsApp AI Receptionist functionality is available
+with our Premium and customized solutions.
+</p>
+</div>
+
+
+<div class="faq-item">
+<h3>Can it integrate with our PMS or booking system?</h3>
+<p>
+Custom integrations can be evaluated depending on your PMS,
+booking engine or channel manager and the integration options they provide.
+</p>
+</div>
+
+
+<div class="faq-item">
+<h3>Do I have to pay before testing it?</h3>
+<p>
+No. We first configure your AI Receptionist and provide a two-week pilot.
+Payment is requested only after you approve the pilot and decide to continue.
+</p>
+</div>
+
+
+<div class="faq-item">
+<h3>Do I need technical knowledge?</h3>
+<p>
+No. We handle the initial configuration and provide the information
+needed to integrate the chatbot into your website.
+</p>
+</div>
+
+
+<div class="faq-item">
+<h3>Can you create a customized solution?</h3>
+<p>
+Yes. Enterprise solutions are available for hotel groups,
+resorts, multi-property businesses and projects requiring custom integrations.
+</p>
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+CONTACT
+========================= -->
 
 <section id="contact" class="section">
-<h2>Contact Us</h2>
+
+<h2>Request Your Free Demo</h2>
+
+<p class="section-subtitle">
+Tell us about your property and we'll prepare a solution tailored to your needs.
+</p>
 
 <div class="contact">
-<input id="name" type="text" placeholder="Your Name">
-<input id="email" type="email" placeholder="Email Address">
-<input id="hotel" type="text" placeholder="Hotel Name">
-<textarea id="message" rows="6" placeholder="Tell us about your hotel"></textarea>
-<button onclick="sendEmail()">Submit</button>
+
+<input
+id="name"
+type="text"
+placeholder="Your Name">
+
+<input
+id="email"
+type="email"
+placeholder="Email Address">
+
+<input
+id="hotel"
+type="text"
+placeholder="Hotel / Property Name">
+
+<input
+id="website"
+type="text"
+placeholder="Property Website">
+
+<select id="package">
+
+<option value="">
+Select a Package / Service
+</option>
+
+<option value="Starter">
+Starter
+</option>
+
+<option value="Standard">
+Standard
+</option>
+
+<option value="Premium">
+Premium
+</option>
+
+<option value="Enterprise / Custom Quote">
+Enterprise / Custom Quote
+</option>
+
+<option value="Not sure yet">
+Not sure yet
+</option>
+
+</select>
+
+<textarea
+id="message"
+rows="6"
+placeholder="Tell us about your property or what you would like the AI Receptionist to do">
+</textarea>
+
+<button onclick="sendEmail()">
+Request Free Demo
+</button>
+
 </div>
+
 </section>
 
-<div class="footer">
-© 2026 HotelAIReceptionist.com | AI Receptionists for Hotels & Guesthouses
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div>
+
+<h3>HotelAIReceptionist</h3>
+
+<p>
+AI-powered guest communication for hotels,
+guesthouses and accommodation businesses.
+</p>
+
 </div>
 
+
+<div>
+
+<h3>Product</h3>
+
+<a href="#features">Features</a>
+<a href="#how">How It Works</a>
+<a href="#demo">Live Demo</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+
+</div>
+
+
+<div>
+
+<h3>Contact</h3>
+
+<a href="mailto:rokenogalleria@gmail.com">
+rokenogalleria@gmail.com
+</a>
+
+<a href="#contact">
+Request a Demo
+</a>
+
+<a href="https://www.aihotelreceptionist.com">
+Website
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 HotelAIReceptionist.com |
+AI Receptionists for Hotels & Accommodation Businesses
+
+</div>
+
+</footer>
+
+
+<!-- =========================
+JAVASCRIPT
+========================= -->
+
 <script>
-function sendEmail() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const hotel = document.getElementById("hotel").value;
-  const message = document.getElementById("message").value;
 
-  const subject = "AI Hotel Receptionist Inquiry";
-  const body =
-    "Name: " + name + "\n" +
-    "Email: " + email + "\n" +
-    "Hotel: " + hotel + "\n\n" +
-    "Message:\n" + message;
+/* Package buttons automatically select
+   the chosen package in the contact form */
 
-  window.location.href =
-    "mailto:rokenogalleria@gmail.com?subject=" +
-    encodeURIComponent(subject) +
-    "&body=" +
-    encodeURIComponent(body);
+document.querySelectorAll(".package-btn").forEach(function(button){
+
+    button.addEventListener("click", function(){
+
+        const selectedPackage =
+            this.getAttribute("data-package");
+
+        const packageSelect =
+            document.getElementById("package");
+
+        packageSelect.value = selectedPackage;
+
+    });
+
+});
+
+
+function sendEmail(){
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const hotel =
+        document.getElementById("hotel").value.trim();
+
+    const website =
+        document.getElementById("website").value.trim();
+
+    const packageName =
+        document.getElementById("package").value;
+
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    if(!name || !email){
+
+        alert("Please enter your name and email address.");
+        return;
+
+    }
+
+
+    const subject =
+        "HotelAIReceptionist Demo Request - " +
+        (hotel || name);
+
+
+    const body =
+
+        "Name: " + name + "\n" +
+
+        "Email: " + email + "\n" +
+
+        "Property: " + hotel + "\n" +
+
+        "Website: " + website + "\n" +
+
+        "Package: " + packageName + "\n\n" +
+
+        "Message:\n" + message;
+
+
+    window.location.href =
+
+        "mailto:rokenogalleria@gmail.com?subject=" +
+
+        encodeURIComponent(subject) +
+
+        "&body=" +
+
+        encodeURIComponent(body);
+
 }
+
 </script>
 
+
 </body>
+
 </html>
